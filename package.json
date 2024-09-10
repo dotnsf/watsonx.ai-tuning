@@ -1,0 +1,13 @@
+{
+    "name": "watsonx.ai-tuning",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+    },
+    "repository": {},
+    "engines": {
+        "node": "16.x"
+    }
+}
