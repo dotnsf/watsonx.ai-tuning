@@ -45,8 +45,8 @@ async function generate_jsonl_sample1(){
           var ans_price = n * price;
 
           var input = '1' + pair.name + 'は' + price + '円です。' + n + pair.name + 'は何円ですか？';
-          //var output = '1' + pair.name + 'が' + price + '円なので、' + price + ' * ' +  n + ' = ' + jpy_price + '円です。'; 
-          var output = '1' + pair.name + 'が' + price + '円なので、' + ans_price + '円です。'; 
+          //var output = '1' + pair.name + 'が' + price + '円なので、' + ans_price + '円です。'; 
+          var output = '1' + pair.name + 'が' + price + '円なので、' + n + pair.name + 'は' + price + ' * ' +  n + ' = ' + ans_price + '円です。'; 
           console.log( '{"input": "' + input + '", "output": "' + output + '"}' );
         }
       }
@@ -67,8 +67,8 @@ async function generate_jsonl_sample2(){
           var ans_price = n * ( 1.0 / price );
 
           var input = '1' + pair.name + 'は' + price + '円です。' + n + '円は何' + pair.name + 'ですか？';
-          //var output = '1' + pair.name + 'が' + price + '円なので、' + price + ' * ' +  n + ' = ' + jpy_price + '円です。'; 
-          var output = '1' + pair.name + 'が' + price + '円なので、' + ans_price + pair.name + 'です。'; 
+          //var output = '1' + pair.name + 'が' + price + '円なので、' + ans_price + pair.name + 'です。'; 
+          var output = '1' + pair.name + 'が' + price + '円なので、' + n + '円は' + n + ' * ( 1 / ' + price + ' ) = ' + ans_price + pair.name + 'です。'; 
           console.log( '{"input": "' + input + '", "output": "' + output + '"}' );
         }
       }
@@ -92,7 +92,8 @@ async function generate_jsonl_sample3(){
       var ans_price = ( 1.0 / pair2.base ) * ( pair1.base );
       
       var input = '1' + pair1.name + 'は' + pair1.base + '円で、1' + pair2.name + 'は' + pair2.base + '円です。1' + pair1.name + 'は何' + pair2.name + 'ですか？';
-      var output = '1' + pair1.name + 'が' + pair1.base + '円で、1' + pair2.name + 'は' + pair2.base + '円なので、' + ans_price + pair2.name + 'です。'; 
+      //var output = '1' + pair1.name + 'が' + pair1.base + '円で、1' + pair2.name + 'は' + pair2.base + '円なので、' + ans_price + pair2.name + 'です。'; 
+      var output = '1' + pair1.name + 'が' + pair1.base + '円で、1' + pair2.name + 'は' + pair2.base + '円なので、1' + pair1.name + 'は ( 1.0 / ' + pair2.base + ' ) * ' + pair1.base + ' = ' + ans_price + pair2.name + 'です。'; 
       console.log( '{"input": "' + input + '", "output": "' + output + '"}' );
     }
     resolve( true );
